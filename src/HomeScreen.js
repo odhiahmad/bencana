@@ -1,317 +1,303 @@
-import {StatusBar, Text, TouchableOpacity, View,StyleSheet,ScrollView} from "react-native";
-import React, {Component} from "react";
-import {Header, Icon, Tile, ListItem, Button} from 'react-native-elements';
-import Ripple from "react-native-material-ripple";
+import {Image, ImageBackground, ScrollView, Text, TouchableOpacity, View} from "react-native";
+import React from "react";
+import {Icon} from 'react-native-elements';
 
 
-
-export default class HomeScreen extends Component {
+export default class HomeScreen extends React.Component {
     render() {
-        const {navigate} = this.props.navigation;
         return (
-            <View style={{flex:1}}>
-                <StatusBar translucent backgroundColor="rgba(0,0,0,0.4)"/>
-                <Header
-                    containerStyle={{
-                        height:80
-                    }}
-                    backgroundColor='gray'
-                    centerComponent={{ text: 'SIPENDEKAR', style: { color: '#fff',fontWeight:'bold' } }}
-                />
-                <ScrollView>
-                <Tile
-                    height={240}
-                    imageSrc={require('./images/puncak_mandeh.jpg')}
-                    title="SELAMAT AMAN DARI BENCANA"
-                    featured
-                />
-                <View style={{flex: 1, backgroundColor: 'white'}}>
-                    <View style={{marginHorizontal: 0, flexDirection: 'row'}}>
-                        <View style={{
-                            flexDirection: 'row',
-                            flexWrap: 'wrap',
-                            marginHorizontal: 5,
-                        }}>
-                            <View style={{
-                                justifyContent: 'space-between',
-                                flexDirection: 'row',
-                                height: '100%',
-                                width: '100%',
-                            }}>
-                                <Ripple
-                                    onPress={() => navigate("PetaUmum")}
-                                    style={{
-                                        marginRight: 2,
-                                        width: '50%',
-                                        height: '100%',
-                                        alignItems: 'center',
-                                    }}>
-                                    <View
-                                        style={{
-                                            margin: 10,
-                                            width: 120,
-                                            height: 120,
-                                            borderWidth: 1,
-                                            borderColor: 'gray',
-                                            borderRadius: 70,
-                                            justifyContent: 'center',
-                                        }}>
-                                        <Icon
-                                            iconStyle={{
-                                                color:'white'
-                                            }}
-                                            size={50}
-                                            reverse
-                                            name='building'
-                                            type='font-awesome'
-                                            color='#0028f0'
-                                        />
-                                    </View>
-                                    <Text
-                                        style={{
-                                            fontSize: 19,
-                                            fontWeight: 'bold',
-                                            textAlign: 'center',
-                                            marginBottom: 6,
-                                        }}>Daerah Rawan</Text>
-                                </Ripple>
-                                <Ripple
-                                    onPress={() => navigate("Peta")}
-                                    // onPress={!this.state.inClickHome ? this.onClickButtonHome : null}
-                                    style={{
-                                        marginRight: 2,
-                                        width: '50%',
-                                        height: '60%',
-                                        alignItems: 'center',
-                                    }}>
-                                    <View
-                                        style={{
-                                            margin: 10,
-                                            width: 120,
-                                            height: 120,
-                                            borderWidth: 1,
-                                            borderColor: 'gray',
-                                            borderRadius: 70,
-                                            justifyContent: 'center',
-                                        }}>
-                                        <Icon
-                                            iconStyle={{
-                                                color:'white'
-                                            }}
-                                            size={50}
-                                            reverse
-                                            name='map'
-                                            type='font-awesome'
-                                            color='#0028f0'
-                                        />
-                                    </View>
-                                    <Text
-                                        style={{
-                                            fontSize: 19,
-                                            fontWeight: 'bold',
-                                            textAlign: 'center',
-                                            marginBottom: 6,
-                                        }}>Peta</Text>
-                                </Ripple>
-                            </View>
-                        </View>
-                    </View>
-                    <View style={{marginHorizontal: 0, flexDirection: 'row'}}>
-                        <View style={{
-                            flexDirection: 'row',
-                            flexWrap: 'wrap',
-                            marginHorizontal: 5,
-                        }}>
-                            <View style={{
-                                justifyContent: 'space-between',
-                                flexDirection: 'row',
-                                height: '100%',
-                                width: '100%',
-                            }}>
-                                <Ripple
-                                    onPress={() => navigate("NomorPenting")}
-                                    style={{
-                                        marginRight: 2,
-                                        width: '50%',
-                                        height: '100%',
-                                        alignItems: 'center',
-                                    }}>
-                                    <View
-                                        style={{
-                                            margin: 10,
-                                            width: 120,
-                                            height: 120,
-                                            borderWidth: 1,
-                                            borderColor: 'gray',
-                                            borderRadius: 70,
-                                            justifyContent: 'center',
-                                        }}>
-                                        <Icon
-                                            iconStyle={{
-                                                color:'white'
-                                            }}
-                                            size={50}
-                                            reverse
-                                            name='phone'
-                                            type='font-awesome'
-                                            color='#0028f0'
-                                        />
-                                    </View>
-                                    <Text
-                                        style={{
-                                            fontSize: 19,
-                                            fontWeight: 'bold',
-                                            textAlign: 'center',
-                                            marginBottom: 6,
-                                        }}>Nomor Penting</Text>
-                                </Ripple>
-                                <Ripple
-                                    onPress={() => navigate("About")}
-                                    // onPress={!this.state.inClickHome ? this.onClickButtonHome : null}
-                                    style={{
-                                        marginRight: 2,
-                                        width: '50%',
-                                        height: '60%',
-                                        alignItems: 'center',
-                                    }}>
-                                    <View
-                                        style={{
-                                            margin: 10,
-                                            width: 120,
-                                            height: 120,
-                                            borderWidth: 1,
-                                            borderColor: 'gray',
-                                            borderRadius: 70,
-                                            justifyContent: 'center',
-                                        }}>
-                                        <Icon
-                                            iconStyle={{
-                                                color:'white',
-                                            }}
-                                            size={50}
-                                            reverse
-                                            name='fire'
-                                            type='font-awesome'
-                                            color='#0028f0'
-                                        />
-                                    </View>
-                                    <Text
-                                        style={{
-                                            fontSize: 19,
-                                            fontWeight: 'bold',
-                                            textAlign: 'center',
-                                            marginBottom: 6,
-                                        }}>About</Text>
-                                </Ripple>
-                            </View>
-                        </View>
-                    </View>
-                    <View style={{backgroundColor: 'white', padding: 5,flex: 1,
-                        alignItems:'center',
-                        justifyContent: 'flex-end',
-                        marginTop:20,
-                        marginBottom: 10}}>
-                        <Button
-                            // onPress={() => navigate("LaporanPengaduan")}
-                            titleStyle={{fontSize:25}}
-                            buttonStyle={{backgroundColor:'#b50000',height:80,borderRadius:20,width:200}}
-                            icon={
-                                <Icon
-                                    name="phone"
-                                    size={25}
-                                    color="white"
-                                    type="font-awesome-5"
-                                />
-                            }
-                            iconRight
-                            title="Laporkan "
-                        />
-                    </View>
+            <ImageBackground
+                source={require("./images/back.png")}
+                style={{width: "100%", height: "100%"}}
+            >
+                {/*<View*/}
+                {/*    style={{*/}
+                {/*        flexDirection: "row",*/}
+                {/*        marginTop: 40,*/}
+                {/*        alignItems: "center",*/}
+                {/*        paddingHorizontal: 40,*/}
+                {/*    }}*/}
+                {/*>*/}
+                {/*    <Icon name="menu" size={30} color="#a2a2db" style={{width: 20}}/>*/}
+                {/*    <Icon*/}
+                {/*        name="account-circle"*/}
+                {/*        size={33}*/}
+                {/*        color="#a2a2db"*/}
+                {/*        style={{marginLeft: 230}}*/}
+                {/*    />*/}
+                {/*</View>*/}
 
+                <View style={{paddingHorizontal: 40, marginTop: 40}}>
+                    <Text
+                        style={{
+                            fontSize: 40,
+                            color: "#522289",
+                            fontFamily: "RobotoBold",
+                        }}
+                    >
+                        Hello
+                    </Text>
+                    <Text
+                        style={{
+                            fontSize: 15,
+                            paddingVertical: 10,
+                            paddingRight: 80,
+                            lineHeight: 22,
+                            fontFamily: "RobotoRegular",
+                            color: "#a2a2db",
+                        }}
+                    >
+                        Selamat Datang di Aplikasi SALAMAIK Selamat Aman dari Bencana
+                    </Text>
+                    {/*<View*/}
+                    {/*    style={{*/}
+                    {/*        flexDirection: "row",*/}
+                    {/*        backgroundColor: "#FFF",*/}
+                    {/*        borderRadius: 40,*/}
+                    {/*        alignItems: "center",*/}
+                    {/*        paddingVertical: 10,*/}
+                    {/*        paddingHorizontal: 20,*/}
+                    {/*        marginTop: 30,*/}
+                    {/*    }}*/}
+                    {/*>*/}
+                    {/*    <Image*/}
+                    {/*        source={require("./images/search.png")}*/}
+                    {/*        style={{height: 14, width: 14}}*/}
+                    {/*    />*/}
+                    {/*    <TextInput*/}
+                    {/*        placeholder="Lorem ipsum"*/}
+                    {/*        style={{paddingHorizontal: 20, fontSize: 15, color: "#ccccef"}}*/}
+                    {/*    />*/}
+                    {/*</View>*/}
+
+                    <ScrollView
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        style={{marginRight: -40, marginTop: 70}}
+                    >
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("Peta")}
+                            style={{
+                                alignItems: "center",
+                                justifyContent: "center",
+                                height: 66,
+                                width: 66,
+                                borderRadius: 50,
+                                backgroundColor: "#5facdb",
+                            }}
+                        >
+                            <Icon type='ionicon' name='locate-outline' color='#fff'
+                            />
+                        </TouchableOpacity>
+
+
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("PetaUmum")}
+                            style={{
+                                alignItems: "center",
+                                justifyContent: "center",
+                                height: 66,
+                                width: 66,
+                                borderRadius: 50,
+                                backgroundColor: "#ff5c83",
+                                marginHorizontal: 22,
+                            }}
+                        >
+                            <Icon type='ionicon' name='map-outline' color='#fff'
+                            />
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("NomorPenting")}
+                            style={{
+                                alignItems: "center",
+                                justifyContent: "center",
+                                height: 66,
+                                width: 66,
+                                borderRadius: 50,
+                                backgroundColor: "#ffa06c",
+                            }}
+                        >
+                            <Icon type='ionicon' name='call-outline' color='#fff'/>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("About")}
+                            style={{
+                                alignItems: "center",
+                                justifyContent: "center",
+                                height: 66,
+                                width: 66,
+                                borderRadius: 50,
+                                backgroundColor: "#bb32fe",
+                                marginLeft: 22,
+                            }}
+                        >
+                            <Icon type='ionicon' name='phone-portrait-sharp' color='#fff'/>
+                        </TouchableOpacity>
+                    </ScrollView>
+                    <ScrollView
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        style={{marginRight: -40, marginTop: 35}}
+                    >
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate("LaporanPengaduan")}
+                            style={{
+                                alignItems: "center",
+                                justifyContent: "center",
+                                height: 66,
+                                width: 330,
+                                borderRadius: 50,
+                                backgroundColor: "#3adcdd",
+                            }}
+                        >
+                            <Icon type='font-awesome-5' name='book' color='#fff'
+                            />
+                        </TouchableOpacity>
+
+
+                    </ScrollView>
+
+                    <Text
+                        style={{
+                            color: "#FFF",
+                            fontFamily: "RobotoRegular",
+                            marginTop: 40,
+                            fontSize: 17,
+                        }}
+                    >
+                        Recommended
+                    </Text>
+
+                    <ScrollView
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        style={{marginHorizontal: -40, marginTop: 20, marginLeft: -30}}
+                    >
+                        <View
+                            style={{
+                                backgroundColor: "#FEFEFE",
+                                height: 180,
+                                width: 190,
+                                borderRadius: 15,
+                                padding: 5,
+                            }}
+                        >
+                            <Image
+                                source={require("./images/1.jpg")}
+                                style={{width: 180, borderRadius: 10, height: 130}}
+                            />
+                            <View
+                                style={{
+                                    flexDirection: "row",
+                                    width: 150,
+                                    alignItems: "center",
+                                }}
+                            >
+                                <View
+                                    style={{
+                                        paddingHorizontal: 5,
+                                        paddingVertical: 5,
+                                    }}
+                                >
+                                    <Text
+                                        style={{
+                                            fontFamily: "RobotoRegular",
+                                            fontSize: 11,
+                                            color: "#a2a2db",
+                                        }}
+                                    >
+                                        Bukit Tinggi
+                                    </Text>
+                                </View>
+                                <Icon type='ionicon' name='locate-outline' color="#ff5c83"/>
+                            </View>
+                        </View>
+
+                        <View
+                            style={{
+                                backgroundColor: "#FEFEFE",
+                                height: 180,
+                                width: 190,
+                                borderRadius: 15,
+                                padding: 5,
+                                marginHorizontal: 10,
+                            }}
+                        >
+                            <Image
+                                source={require("./images/2.jpg")}
+                                style={{width: 180, borderRadius: 10, height: 130}}
+                            />
+                            <View
+                                style={{
+                                    flexDirection: "row",
+                                    width: 150,
+                                    alignItems: "center",
+                                }}
+                            >
+                                <View
+                                    style={{
+                                        paddingHorizontal: 5,
+                                        paddingVertical: 5,
+                                    }}
+                                >
+                                    <Text
+                                        style={{
+                                            fontFamily: "RobotoRegular",
+                                            fontSize: 11,
+                                            color: "#a2a2db",
+                                        }}
+                                    >
+                                        Padang Panjang
+                                    </Text>
+                                </View>
+                                <Icon type='ionicon' name='locate-outline' color="#ff5c83"/>
+                            </View>
+                        </View>
+
+                        <View
+                            style={{
+                                backgroundColor: "#FEFEFE",
+                                height: 180,
+                                width: 190,
+                                borderRadius: 15,
+                                padding: 5,
+                            }}
+                        >
+                            <Image
+                                source={require("./images/3.jpg")}
+                                style={{width: 180, borderRadius: 10, height: 130}}
+                            />
+                            <View
+                                style={{
+                                    flexDirection: "row",
+                                    width: 150,
+                                    alignItems: "center",
+                                }}
+                            >
+                                <View
+                                    style={{
+                                        paddingHorizontal: 5,
+                                        paddingVertical: 5,
+                                    }}
+                                >
+                                    <Text
+                                        style={{
+                                            fontFamily: "RobotoRegular",
+                                            fontSize: 11,
+                                            color: "#a2a2db",
+                                        }}
+                                    >
+                                        Padang
+                                    </Text>
+                                </View>
+                                <Icon type='ionicon' name='locate-outline' color="#ff5c83"/>
+                            </View>
+                        </View>
+                    </ScrollView>
                 </View>
-                </ScrollView>
-            </View>
+            </ImageBackground>
         );
     }
-
-
 }
-
-const styles = StyleSheet.create({
-    ripleContainer: {
-        padding: 16,
-        backgroundColor: '#F5F5F5',
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'stretch',
-        minHeight: 56,
-        margin: 4,
-        borderRadius: 15,
-        elevation: 2,
-        shadowRadius: 2,
-        shadowOpacity: 0.3,
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-    },
-    buttonRiple: {
-        justifyContent: 'center',
-        alignSelf: 'flex-end',
-        width: 80,
-        backgroundColor: '#fff',
-        borderRadius: 5,
-        marginVertical: 2,
-        padding: 5,
-    },
-    buttonRiple2: {
-        justifyContent: 'center',
-        alignSelf: 'flex-end',
-        width: 110,
-        backgroundColor: '#fff',
-        borderRadius: 5,
-        marginVertical: 2,
-        padding: 5,
-    },
-    a: {
-        backgroundColor: '#1da30b',
-    },
-    textButton: {
-        fontSize: 12,
-        fontWeight: '500',
-        color: 'gray',
-    },
-    text: {
-        fontSize: 30,
-        fontWeight: '500',
-        color: 'rgba(255,255,255,.87)',
-    },
-
-    footnote: {
-        fontSize: 15,
-        fontWeight: '400',
-        color: 'rgba(0,0,0,.54)',
-    },
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    view1: {},
-    view2: {},
-    buttonText: {
-        fontSize: 16,
-        fontWeight: '500',
-        color: '#ffffff',
-        textAlign: 'center',
-    },
-    button: {
-        width: 300,
-        backgroundColor: 'orange',
-        borderRadius: 25,
-        marginVertical: 2,
-        paddingVertical: 13,
-    },
-});

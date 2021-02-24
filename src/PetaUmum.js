@@ -83,7 +83,7 @@ export default class PetaUmum extends Component {
         return (
             <ListItem
                 onPress={() => {
-                    this.setModalVisible(true, item);
+                    this.props.navigation.navigate('PetaUmumDetail',{'dataItem':item})
                 }}
 
                 key={index} bottomDivider>
@@ -144,7 +144,7 @@ export default class PetaUmum extends Component {
                     containerStyle={{
                         height:80
                     }}
-                    backgroundColor='gray'
+                    backgroundColor='#7F7DCC'
                     leftComponent={
                         <Ripple onPress={() => this.props.navigation.pop()}>
                             <Icon type='ionicon' name='arrow-back-outline' color='#fff'
@@ -182,62 +182,6 @@ export default class PetaUmum extends Component {
                         renderItem={this.renderRow}
                         keyExtractor={(item, index) => index.toString()}
                         data={this.state.data}/>}
-                <Modal
-                    onHardwareBackPress={() => this.setModalUnvisible(!this.state.modalVisible)}
-                    propagateSwipe={true}
-                    modalTitle="Tes"
-                    animationInTiming="300"
-                    animationType="slide"
-                    transparent={false}
-                    visible={this.state.modalVisible}
-                    onRequestClose={() => {
-                        this.setModalUnvisible(!this.state.modalVisible);
-                    }}>
-                    <Header
-                        containerStyle={{height: 60}}
-                        backgroundColor='#e52d27'
-                        leftComponent={
-                            <Ripple onPress={() => this.setModalUnvisible(!this.state.modalVisible)}>
-                                <Icon type='font-awesome-5' size={25} name='times-circle' color='#fff'
-                                /></Ripple>}
-
-                        placement="center"
-                        centerComponent={
-                            {text: 'Detail', style: {fontSize: 18, color: '#fff'}}
-                        }
-                    />
-                    <View style={{flex: 1}}>
-                        <Image source={{uri: this.state.dataDetail.picture}} style={{
-                            width: Dimensions.get('window').width,
-                            height: 200,
-                            marginTop: 20,
-                            marginBottom: 10
-                        }}/>
-                        <MapView
-                            style={{width:Dimensions.get('window').width,height:200}}
-                            initialRegion={{
-                                latitude: parseFloat(this.state.dataDetail.lat),
-                                longitude: parseFloat(this.state.dataDetail.lng),
-                                latitudeDelta: 0.0043,
-                                longitudeDelta: 0.0034,
-                            }}
-                        />
-                        <View style={{flex:1,marginHorizontal: 20}}>
-                            <Text style={{fontSize: 16, fontWeight: 'bold'}}>Permasalahan :</Text>
-                            <WebView
-                                source={{html: '<h1>' + this.state.dataDetail.permasalahan + '</h1>'}}
-                                style={{marginTop: 5, height: 150}}
-                            />
-                            <Text style={{fontSize: 16, fontWeight: 'bold'}}>Rekomendasi :</Text>
-                            <WebView
-                                originWhitelist={['*']}
-                                source={{html: '<h1>' + this.state.dataDetail.rekomendasi + '</h1>'}}
-
-                            />
-                        </View>
-                    </View>
-
-                </Modal>
             </View>
         );
     }

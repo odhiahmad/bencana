@@ -24,7 +24,7 @@ export default class NomorPenting extends Component {
                     containerStyle={{
                         height:80
                     }}
-                    backgroundColor='gray'
+                    backgroundColor='#7F7DCC'
                     leftComponent={
                         <Ripple onPress={() => {
                             this.props.navigation.pop()

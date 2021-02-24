@@ -5,11 +5,6 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -21,8 +16,16 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
+      },
+      "splash": {
+        "mdpi": "./assets/iconbencana/drawable-mdpi/icon.png",
+        "hdpi": "./assets/iconbencana/drawable-hdpi/icon.png",
+        "xhdpi": "./assets/iconbencana/drawable-xhdpi/icon.png",
+        "xxhdpi": "./assets/iconbencana/drawable-xxhdpi/icon.png",
+        "xxxhdpi": "./assets/iconbencana/drawable-xxxhdpi/icon.png",
+        "resizeMode": "cover"
       },
       "package": "com.kominfo.bencana"
     },

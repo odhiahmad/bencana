@@ -197,7 +197,7 @@ export default class LaporanPengaduan extends ValidationComponent {
                     containerStyle={{
                         height:80
                     }}
-                    backgroundColor='gray'
+                    backgroundColor='#7F7DCC'
                     leftComponent={
                         <Ripple onPress={() => {
                             this.props.navigation.pop()
@@ -205,7 +205,7 @@ export default class LaporanPengaduan extends ValidationComponent {
                             <Icon type='ionicon' name='arrow-back-outline' color='#fff'
                             /></Ripple>}
 
-                    centerComponent={{text: 'Pengaduan', style: {color: '#fff', fontWeight: 'bold'}}}
+                    centerComponent={{text: 'Laporan Pengaduan', style: {color: '#fff', fontWeight: 'bold'}}}
                 />
                 <View style={{
                     flex: 1,
@@ -216,7 +216,7 @@ export default class LaporanPengaduan extends ValidationComponent {
                     onChangeText={(nama) => this.setState({nama})}
                     placeholder='Nama'
                     clearButtonMode='always'
-                    placeholderTextColor="rgba(255,255,255,0.8)"
+
                     selectionColor="#999999"
                     underlineColorAndroid="rgba(0,0,0,0)"
                     autoCapitalize='words'
@@ -228,7 +228,7 @@ export default class LaporanPengaduan extends ValidationComponent {
                     onChangeText={(email) => this.setState({email})}
                     placeholder='Email'
                     clearButtonMode='always'
-                    placeholderTextColor="rgba(255,255,255,0.8)"
+
                     selectionColor="#999999"
                     underlineColorAndroid="rgba(0,0,0,0)"
                     autoCapitalize='words'
@@ -240,7 +240,7 @@ export default class LaporanPengaduan extends ValidationComponent {
                     onChangeText={(no_hp) => this.setState({no_hp})}
                     placeholder='Nomor HP'
                     clearButtonMode='always'
-                    placeholderTextColor="rgba(255,255,255,0.8)"
+
                     selectionColor="#999999"
                     underlineColorAndroid="rgba(0,0,0,0)"
                     autoCapitalize='words'
@@ -251,7 +251,7 @@ export default class LaporanPengaduan extends ValidationComponent {
                     onChangeText={(pesan) => this.setState({pesan})}
                     placeholder='Pesan'
                     clearButtonMode='always'
-                    placeholderTextColor="rgba(255,255,255,0.8)"
+
                     selectionColor="#999999"
                     underlineColorAndroid="rgba(0,0,0,0)"
                     autoCapitalize='words'
@@ -302,15 +302,16 @@ const styles = StyleSheet.create({
         paddingTop: 30
     },
     inputBox: {
-        height:50,
+        height:60,
         width:500,
         maxWidth: 400,
-        backgroundColor: 'rgba(29, 163, 11,0.8)',
+        // backgroundColor: '#7F7DCC',
         borderRadius: 25,
         paddingHorizontal: 16,
         fontSize: 16,
-        color: '#ffffff',
-        marginVertical: 10,
+        color: '#000',
+        marginVertical: 5,
     },
+
 
 });
