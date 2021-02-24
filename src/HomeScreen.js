@@ -1,6 +1,6 @@
 import {Image, ImageBackground, ScrollView, Text, TouchableOpacity, View} from "react-native";
 import React from "react";
-import {Icon} from 'react-native-elements';
+import {Icon, Badge} from 'react-native-elements';
 
 
 export default class HomeScreen extends React.Component {
@@ -47,7 +47,7 @@ export default class HomeScreen extends React.Component {
                             color: "#a2a2db",
                         }}
                     >
-                        Selamat Datang di Aplikasi SALAMAIK Selamat Aman dari Bencana
+                        Selamat Datang di Aplikasi SALAMAIK Selamat Aman dari Kecelakaan
                     </Text>
                     {/*<View*/}
                     {/*    style={{*/}
@@ -70,100 +70,221 @@ export default class HomeScreen extends React.Component {
                     {/*    />*/}
                     {/*</View>*/}
 
-                    <ScrollView
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                        style={{marginRight: -40, marginTop: 70}}
-                    >
+                    <View style={{flexDirection: "row", marginTop: 40}}>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.navigate("Peta")}
                             style={{
                                 alignItems: "center",
                                 justifyContent: "center",
-                                height: 66,
+                                height: 80,
                                 width: 66,
-                                borderRadius: 50,
-                                backgroundColor: "#5facdb",
-                            }}
-                        >
-                            <Icon type='ionicon' name='locate-outline' color='#fff'
-                            />
-                        </TouchableOpacity>
+                                marginHorizontal: 10,
+                                // backgroundColor: "white",
+                            }}>
+                            <View
+                                style={{
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    height: 66,
+                                    width: 66,
+                                    borderRadius: 50,
+                                    backgroundColor: "#5facdb",
+                                }}
+                            >
+                                <Icon type='ionicon' name='locate-outline' color='#fff'
+                                />
+                            </View>
+                            <View
+                                style={{
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    height: 30,
+                                    width: 66,
+                                }}>
+                                <Text
+                                    style={{
+                                        fontWeight: 'bold',
+                                        textAlign: 'center',
+                                        fontSize: 14,
+                                        color: "gray",
+                                    }}
+                                >Peta</Text>
+                            </View>
 
+                        </TouchableOpacity>
 
                         <TouchableOpacity
                             onPress={() => this.props.navigation.navigate("PetaUmum")}
                             style={{
                                 alignItems: "center",
                                 justifyContent: "center",
-                                height: 66,
+                                height: 80,
                                 width: 66,
-                                borderRadius: 50,
-                                backgroundColor: "#ff5c83",
-                                marginHorizontal: 22,
-                            }}
-                        >
-                            <Icon type='ionicon' name='map-outline' color='#fff'
-                            />
-                        </TouchableOpacity>
+                                marginHorizontal: 10,
+                                // backgroundColor: "white",
+                            }}>
+                            <View
 
+                                style={{
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    height: 66,
+                                    width: 66,
+                                    borderRadius: 50,
+                                    backgroundColor: "#ff5c83",
+                                    marginHorizontal: 22,
+                                }}
+                            >
+                                <Icon type='ionicon' name='map-outline' color='#fff'
+                                />
+                            </View>
+                            <View
+                                style={{
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    height: 30,
+                                    width: 66,
+                                }}>
+                                <Text
+                                    style={{
+                                        fontWeight: 'bold',
+                                        textAlign: 'center',
+                                        fontSize: 14,
+                                        color: "gray",
+                                    }}
+                                >Peta Umum</Text>
+                            </View>
+                        </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.navigate("NomorPenting")}
                             style={{
                                 alignItems: "center",
                                 justifyContent: "center",
-                                height: 66,
+                                height: 80,
                                 width: 66,
-                                borderRadius: 50,
-                                backgroundColor: "#ffa06c",
-                            }}
-                        >
-                            <Icon type='ionicon' name='call-outline' color='#fff'/>
-                        </TouchableOpacity>
+                                marginHorizontal: 10,
+                                // backgroundColor: "white",
+                            }}>
+                            <View
 
+                                style={{
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    height: 66,
+                                    width: 66,
+                                    borderRadius: 50,
+                                    backgroundColor: "#ffa06c",
+                                }}
+                            >
+                                <Icon type='ionicon' name='call-outline' color='#fff'/>
+                            </View>
+                            <View
+                                style={{
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    height: 30,
+                                    width: 66,
+                                }}>
+                                <Text
+                                    style={{
+                                        fontWeight: 'bold',
+                                        textAlign: 'center',
+                                        fontSize: 14,
+                                        color: "gray",
+                                    }}
+                                >Nomor Penting</Text>
+                            </View>
+                        </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.navigate("About")}
                             style={{
                                 alignItems: "center",
                                 justifyContent: "center",
-                                height: 66,
+                                height: 80,
                                 width: 66,
-                                borderRadius: 50,
-                                backgroundColor: "#bb32fe",
-                                marginLeft: 22,
-                            }}
-                        >
-                            <Icon type='ionicon' name='phone-portrait-sharp' color='#fff'/>
+                                marginHorizontal: 10,
+                                // backgroundColor: "white",
+                            }}>
+                            <View
+
+                                style={{
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    height: 66,
+                                    width: 66,
+                                    borderRadius: 50,
+                                    backgroundColor: "#bb32fe",
+                                }}
+                            >
+                                <Icon type='ionicon' name='phone-portrait-sharp' color='#fff'/>
+                            </View>
+                            <View
+                                style={{
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    height: 30,
+                                    width: 66,
+                                }}>
+                                <Text
+                                    style={{
+                                        fontWeight: 'bold',
+                                        textAlign: 'center',
+                                        fontSize: 14,
+                                        color: "gray",
+                                    }}
+                                >About</Text>
+                            </View>
                         </TouchableOpacity>
-                    </ScrollView>
-                    <ScrollView
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                        style={{marginRight: -40, marginTop: 35}}
-                    >
+                    </View>
+                    <View style={{flexDirection: "row", marginTop: 20}}>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.navigate("LaporanPengaduan")}
                             style={{
                                 alignItems: "center",
                                 justifyContent: "center",
-                                height: 66,
+                                height: 100,
                                 width: 330,
-                                borderRadius: 50,
-                                backgroundColor: "#3adcdd",
-                            }}
-                        >
-                            <Icon type='font-awesome-5' name='book' color='#fff'
-                            />
+                                marginHorizontal: 10,
+                                // backgroundColor: "white",
+                            }}>
+                            <View
+                                style={{
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    height: 66,
+                                    width: 330,
+                                    borderRadius: 50,
+                                    backgroundColor: "#ed4e71",
+                                }}
+                            >
+                                <Icon type='font-awesome-5' name='exclamation-triangle' color='#fff'
+                                />
+                            </View>
+                            <View
+                                style={{
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    height: 30,
+                                    width: 150,
+                                }}>
+                                <Text
+                                    style={{
+                                        fontWeight: 'bold',
+                                        textAlign: 'center',
+                                        fontSize: 14,
+                                        color: "white",
+                                    }}
+                                >Laporkan Kecelakaan!</Text>
+                            </View>
                         </TouchableOpacity>
 
-
-                    </ScrollView>
+                    </View>
 
                     <Text
                         style={{
                             color: "#FFF",
                             fontFamily: "RobotoRegular",
-                            marginTop: 40,
+                            marginTop: 10,
                             fontSize: 17,
                         }}
                     >

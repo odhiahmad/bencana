@@ -2,9 +2,23 @@ import {StatusBar, Text, View} from "react-native";
 import React, {Component} from "react";
 import {Header, Icon, ListItem, PricingCard} from 'react-native-elements';
 import Ripple from "react-native-material-ripple";
+import * as Linking from 'expo-linking';
 
 
 export default class NomorPenting extends Component {
+    makeCall = (number) => {
+
+        let phoneNumber = '';
+
+        if (Platform.OS === 'android') {
+            phoneNumber = 'tel:${number}';
+        } else {
+            phoneNumber = 'telprompt:${1234567890}';
+        }
+
+        Linking.openURL(phoneNumber);
+    };
+
     render() {
         const list = [
             {
@@ -13,7 +27,7 @@ export default class NomorPenting extends Component {
             },
             {
                 title: 'LLAJ',
-                icon: 'flight-takeoff'
+                icon: 'flight-takeoff',
             },
 
         ]
