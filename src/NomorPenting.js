@@ -11,9 +11,9 @@ export default class NomorPenting extends Component {
         let phoneNumber = '';
 
         if (Platform.OS === 'android') {
-            phoneNumber = 'tel:${number}';
+            phoneNumber = `tel:${number}`;
         } else {
-            phoneNumber = 'telprompt:${1234567890}';
+            phoneNumber = `telprompt:${number}`;
         }
 
         Linking.openURL(phoneNumber);
@@ -23,11 +23,13 @@ export default class NomorPenting extends Component {
         const list = [
             {
                 title: 'Polisi',
-                icon: 'av-timer'
+                icon: 'av-timer',
+                nomor:'085272993360'
             },
             {
                 title: 'LLAJ',
                 icon: 'flight-takeoff',
+                nomor:'085272993366'
             },
 
         ]
@@ -50,10 +52,13 @@ export default class NomorPenting extends Component {
                 />
                 {
                     list.map((item, i) => (
-                        <ListItem key={i} bottomDivider>
+                        <ListItem
+                            onPress={()=>this.makeCall(item.nomor)}
+                            key={i} bottomDivider>
                             <Icon name={item.icon} />
                             <ListItem.Content>
                                 <ListItem.Title>{item.title}</ListItem.Title>
+                                <ListItem.Subtitle>{item.nomor}</ListItem.Subtitle>
                             </ListItem.Content>
                             <ListItem.Chevron />
                         </ListItem>

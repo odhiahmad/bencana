@@ -5,7 +5,7 @@ import Ripple from "react-native-material-ripple";
 import LoaderModal from "./components/LoaderModal";
 import WebView from "react-native-webview";
 
-import MapView from 'react-native-maps';
+import MapView, {Marker} from 'react-native-maps';
 
 export default class PetaUmumDetail extends Component {
     constructor(props) {
@@ -70,9 +70,17 @@ export default class PetaUmumDetail extends Component {
                                 latitudeDelta: 0.0043,
                                 longitudeDelta: 0.0034,
                             }}
-                        />
+                        ><Marker
+                                // key={index}
+                                coordinate={{
+                                    latitude: parseFloat(this.state.dataDetail.lat),
+                                    longitude: parseFloat(this.state.dataDetail.lng)
+                                }}
+                                // title='tes'
+                                // description='Tes'
+                            />
+                        </MapView>
                     }
-
                     <View style={{flex: 1, marginHorizontal: 10}}>
                         <Text style={{fontSize: 16, fontWeight: 'bold'}}>Permasalahan :</Text>
                         <WebView

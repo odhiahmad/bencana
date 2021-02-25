@@ -1,13 +1,11 @@
-import {Image, StatusBar, StyleSheet, View, TextInput, Alert} from "react-native";
+import {Alert, Image, StatusBar, StyleSheet, TextInput, View} from "react-native";
 import React from "react";
 import {Button, Header, Icon} from 'react-native-elements';
 import Ripple from "react-native-material-ripple";
 import * as ImagePicker from 'expo-image-picker';
 import {baseApi} from "./services/api";
 import LoaderModal from "./components/LoaderModal";
-import {showMessage} from "react-native-flash-message";
 import ValidationComponent from 'react-native-form-validator';
-import AwesomeAlert from 'react-native-awesome-alerts';
 
 export default class LaporanPengaduan extends ValidationComponent {
     constructor(props) {
@@ -105,13 +103,15 @@ export default class LaporanPengaduan extends ValidationComponent {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    nama_lengkap: this.state.nama,
-                    email: this.state.email,
-                    no_telp: this.state.no_hp,
-                    file: this.state.gambar,
-                    pesan: this.state.pesan,
-                    file_ext: this.state.file_ext
-                }),
+                        nama_lengkap: this.state.nama,
+                        email: this.state.email,
+                        no_telp: this.state.no_hp,
+                        file: this.state.gambar,
+                        pesan: this.state.pesan,
+                        file_ext: this.state.file_ext
+                    },
+                ),
+
             }).then((response) => response.json()).then((responseJson) => {
 
 
@@ -131,9 +131,9 @@ export default class LaporanPengaduan extends ValidationComponent {
                         "Notifikasi",
                         "Berhasil menginputkan data laporan",
                         [
-                            { text: "OK", onPress: () => console.log("OK Pressed") }
+                            {text: "OK", onPress: () => console.log("OK Pressed")}
                         ],
-                        { cancelable: false }
+                        {cancelable: false}
                     );
 
 
@@ -148,15 +148,16 @@ export default class LaporanPengaduan extends ValidationComponent {
                         "Notifikasi",
                         "Gagal",
                         [
-                            { text: "OK", onPress: () => console.log("OK Pressed") }
+                            {text: "OK", onPress: () => console.log("OK Pressed")}
                         ],
-                        { cancelable: false }
+                        {cancelable: false}
                     );
 
                 }
 
 
             }).catch((error) => {
+
 
                 this.setState({
                     loading: false,
@@ -166,9 +167,9 @@ export default class LaporanPengaduan extends ValidationComponent {
                     "Notifikasi",
                     "Gagal",
                     [
-                        { text: "OK", onPress: () => console.log("OK Pressed") }
+                        {text: "OK", onPress: () => console.log("OK Pressed")}
                     ],
-                    { cancelable: false }
+                    {cancelable: false}
                 );
             });
         } else {
@@ -177,9 +178,9 @@ export default class LaporanPengaduan extends ValidationComponent {
                 "Notifikasi",
                 "Isi Semua Data Dengan Benar",
                 [
-                    { text: "OK", onPress: () => console.log("OK Pressed") }
+                    {text: "OK", onPress: () => console.log("OK Pressed")}
                 ],
-                { cancelable: false }
+                {cancelable: false}
             );
             console.log('Gagal')
 
@@ -195,7 +196,7 @@ export default class LaporanPengaduan extends ValidationComponent {
                 <StatusBar translucent backgroundColor="rgba(0,0,0,0.4)"/>
                 <Header
                     containerStyle={{
-                        height:80
+                        height: 80
                     }}
                     backgroundColor='#7F7DCC'
                     leftComponent={
@@ -211,83 +212,88 @@ export default class LaporanPengaduan extends ValidationComponent {
                     flex: 1,
                     alignItems: 'center',
                 }}>
-                <TextInput
-                    value={this.state.nama}
-                    onChangeText={(nama) => this.setState({nama})}
-                    placeholder='Nama'
-                    clearButtonMode='always'
+                    <TextInput
+                        value={this.state.nama}
+                        onChangeText={(nama) => this.setState({nama})}
+                        placeholder='Nama'
+                        clearButtonMode='always'
 
-                    selectionColor="#999999"
-                    underlineColorAndroid="rgba(0,0,0,0)"
-                    autoCapitalize='words'
-                    style={styles.inputBox}
-                />
-                <TextInput
-                    value={this.state.email}
-                    keyboardType={"email-address"}
-                    onChangeText={(email) => this.setState({email})}
-                    placeholder='Email'
-                    clearButtonMode='always'
+                        selectionColor="#999999"
+                        underlineColorAndroid="rgba(0,0,0,0)"
+                        autoCapitalize='words'
+                        style={styles.inputBox}
+                    />
+                    <TextInput
+                        value={this.state.email}
+                        keyboardType={"email-address"}
+                        onChangeText={(email) => this.setState({email})}
+                        placeholder='Email'
+                        clearButtonMode='always'
 
-                    selectionColor="#999999"
-                    underlineColorAndroid="rgba(0,0,0,0)"
-                    autoCapitalize='words'
-                    style={styles.inputBox}
-                />
-                <TextInput
-                    value={this.state.no_hp}
-                    keyboardType={"numeric"}
-                    onChangeText={(no_hp) => this.setState({no_hp})}
-                    placeholder='Nomor HP'
-                    clearButtonMode='always'
+                        selectionColor="#999999"
+                        underlineColorAndroid="rgba(0,0,0,0)"
+                        autoCapitalize='words'
+                        style={styles.inputBox}
+                    />
+                    <TextInput
+                        value={this.state.no_hp}
+                        keyboardType={"numeric"}
+                        onChangeText={(no_hp) => this.setState({no_hp})}
+                        placeholder='Nomor HP'
+                        clearButtonMode='always'
 
-                    selectionColor="#999999"
-                    underlineColorAndroid="rgba(0,0,0,0)"
-                    autoCapitalize='words'
-                    style={styles.inputBox}
-                />
-                <TextInput
-                    value={this.state.pesan}
-                    onChangeText={(pesan) => this.setState({pesan})}
-                    placeholder='Pesan'
-                    clearButtonMode='always'
+                        selectionColor="#999999"
+                        underlineColorAndroid="rgba(0,0,0,0)"
+                        autoCapitalize='words'
+                        style={styles.inputBox}
+                    />
+                    <TextInput
+                        value={this.state.pesan}
+                        onChangeText={(pesan) => this.setState({pesan})}
+                        placeholder='Pesan'
+                        clearButtonMode='always'
 
-                    selectionColor="#999999"
-                    underlineColorAndroid="rgba(0,0,0,0)"
-                    autoCapitalize='words'
-                    style={styles.inputBox}
-                />
+                        selectionColor="#999999"
+                        underlineColorAndroid="rgba(0,0,0,0)"
+                        autoCapitalize='words'
+                        style={styles.inputBox}
+                    />
 
-                {this.state.uri !== '' ?
-                    <View style={{
-                        flex: 1, justifyContent: 'center',
-                        alignItems: 'center',
-                    }}>
-                        <Image source={{uri: this.state.uri}} style={{
-                            width: 120,
-                            height: 120,
-                            marginBottom: 5
-                        }}/>
-                    </View>
-                    :
-                    <View></View>
-                }
-
-
-                <Button
-                    buttonStyle={{backgroundColor: 'rgba(29, 163, 11,0.8)',height:60,width:240,borderRadius:30}}
-                    onPress={this.pickImage}
-                    containerStyle={{margin: 5}}
-                    title="Upload Foto"
-                />
+                    {this.state.uri !== '' ?
+                        <View style={{
+                            flex: 1, justifyContent: 'center',
+                            alignItems: 'center',
+                        }}>
+                            <Image source={{uri: this.state.uri}} style={{
+                                width: 120,
+                                height: 120,
+                                marginBottom: 5
+                            }}/>
+                        </View>
+                        :
+                        <View></View>
+                    }
 
 
-                <Button
-                    onPress={this._onSubmit.bind(this)}
-                    buttonStyle={{backgroundColor: 'red',height:60,width:240,borderRadius:30}}
-                    containerStyle={{margin: 5, marginTop: 5}}
-                    title="Submit Laporan"
-                />
+                    <Button
+                        buttonStyle={{
+                            backgroundColor: 'rgba(29, 163, 11,0.8)',
+                            height: 60,
+                            width: 240,
+                            borderRadius: 30
+                        }}
+                        onPress={this.pickImage}
+                        containerStyle={{margin: 5}}
+                        title="Upload Foto"
+                    />
+
+
+                    <Button
+                        onPress={this._onSubmit.bind(this)}
+                        buttonStyle={{backgroundColor: 'red', height: 60, width: 240, borderRadius: 30}}
+                        containerStyle={{margin: 5, marginTop: 5}}
+                        title="Submit Laporan"
+                    />
                 </View>
 
             </View>
@@ -302,8 +308,8 @@ const styles = StyleSheet.create({
         paddingTop: 30
     },
     inputBox: {
-        height:60,
-        width:500,
+        height: 60,
+        width: 500,
         maxWidth: 400,
         // backgroundColor: '#7F7DCC',
         borderRadius: 25,

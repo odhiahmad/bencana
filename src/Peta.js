@@ -27,6 +27,8 @@ export default class Peta extends Component {
 
             jarak: [],
 
+            dataCurrent: [],
+
             mapRegion: null,
             hasLocationPermissions: false,
             locationResult: null,
@@ -38,7 +40,7 @@ export default class Peta extends Component {
 
     componentDidMount() {
         this.getIndex();
-        // this._getLocationAsync();
+        this._getLocationAsync();
     }
 
     _handleMapRegionChange = mapRegion => {
@@ -64,10 +66,23 @@ export default class Peta extends Component {
             mapRegion: {
                 latitude: location.coords.latitude,
                 longitude: location.coords.longitude,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421
+                latitudeDelta: 0.4922,
+                longitudeDelta: 0.4421
             }
         });
+
+        let a = String(location.coords.latitude);
+        let b = String(location.coords.longitude);
+
+
+        this.state.data.push({
+            lat: String(a),
+            lng: String(b)
+        })
+
+        console.log(this.state.data)
+
+
     };
 
     getLocation = async () => {
@@ -91,7 +106,7 @@ export default class Peta extends Component {
                             //     longitude: pos.coords.longitude
                             // }, this.state.dataSource);
 
-                            for (let i = 0; i < this.state.data.length; i++) {
+                            for (let i = 0; i < this.state.data.length - 1; i++) {
                                 var jarakMeter = geolib.getDistance({
                                     latitude: pos.coords.latitude,
                                     longitude: pos.coords.longitude
@@ -108,6 +123,10 @@ export default class Peta extends Component {
                                     sumber: this.state.data[i].sumber_data,
                                     uri: this.state.data[i].picture
                                 })
+
+                                if (jarakMeter <= 50) {
+                                    alert('Anda mendekati titik rawan kecelekaan')
+                                }
 
                                 console.log(this.state.jarak)
                             }
@@ -145,6 +164,8 @@ export default class Peta extends Component {
                     longitude: this.state.data[i].lng
                 })
             }
+
+            console.log(this.state.data)
 
         }).catch((error) => {
             console.log(error);
@@ -207,22 +228,24 @@ export default class Peta extends Component {
                             }}>Refresh </Text>
                         </TouchableOpacity>
                     </View> :
-                    <View style={{flex:1,backgroundColor:'white'}}>
+                    <View style={{flex: 1, backgroundColor: 'white'}}>
 
                         <MapView
                             onLayout={this.onMapReady}
                             style={{width: Dimensions.get('window').width, height: 320}}
                             // region={'Kota Padang'}
-                            initialRegion={{
-                                latitude: -1.075139,
-                                longitude: 100.415500,
-                                latitudeDelta: 0.1143,
-                                longitudeDelta: 0.1134,
-                            }}
-                            // region={this.state.mapRegion}
+                            // initialRegion={{
+                            //     latitude: -1.075139,
+                            //     longitude: 100.415500,
+                            //     latitudeDelta: 0.1143,
+                            //     longitudeDelta: 0.1134,
+                            // }}
+                            region={this.state.mapRegion}
                             // onRegionChange={this._handleMapRegionChange}
                             // onRegionChange={'padang'}
                         >
+
+
                             {this.state.data.map((marker, index) => (
                                 <Marker
                                     key={index}
@@ -233,7 +256,7 @@ export default class Peta extends Component {
                             ))}
                         </MapView>
 
-                        <View style={{alignItems:'center'}}>
+                        <View style={{alignItems: 'center'}}>
                             <Button
                                 onPress={this.getLocation}
                                 buttonStyle={{backgroundColor: '#7F7DCC', height: 60, width: 240, borderRadius: 30}}
@@ -241,7 +264,6 @@ export default class Peta extends Component {
                                 title="Update Lokasi"
                             />
                         </View>
-
 
 
                         <FlatList
